@@ -1,0 +1,6 @@
+# ignore no need directories
+/mysite/mysite/__pycache__
+/mysite/client/__pycache__
+
+# ignore no need files
+/mysite/db.sqlite3
