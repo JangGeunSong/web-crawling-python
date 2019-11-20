@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'client'
 ]
 
 MIDDLEWARE = [
@@ -72,11 +73,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+# Link to mysql in my pc This infomation has to keep secret!
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'DBname', # DB명
+        'USER': 'root', # 데이터베이스 계정
+        'PASSWORD': 'password', # 계정 비밀번호
+        'HOST': 'host', # 데이테베이스 주소(IP)
+        'PORT': 'port', # 데이터베이스 포트(보통은 3306)
     }
 }
 
@@ -118,3 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+) 

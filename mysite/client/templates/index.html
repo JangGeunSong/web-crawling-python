@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        <title>Python Web Crawling</title>
+</head>
+<body>
+    <div class="container mr-3 mt-3 pt-5">
+        <h1>Hello This is Python Web Crawling Test Page!</h1>
+        <button type="button" class="btn btn-raised btn-primary">Primary</button>
+        <button type="button" class="btn btn-raised btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-raised btn-success">Success</button>
+        <button type="button" class="btn btn-raised btn-info">Info</button>
+        <button type="button" class="btn btn-raised btn-warning">Warning</button>
+        <button type="button" class="btn btn-raised btn-danger">Danger</button>
+        <button type="button" class="btn btn-raised btn-link">Link</button>
+        <button type="button" class="btn btn-raised active"><code>.active</code></button>
+    </div>
+    <script src="{% static 'javascripts/main.js '%}"></script>
+</body>
+</html>
