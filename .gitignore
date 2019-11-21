@@ -1,6 +1,9 @@
 # ignore no need directories
 /mysite/mysite/__pycache__
 /mysite/client/__pycache__
+/mysite/crawlingapi/__pycache__
+/mysite/client/migrations
+/mysite/crawlingapi/migrations
 /mysite/mysite/config
 
 # ignore no need files
