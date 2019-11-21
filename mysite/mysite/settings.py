@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'client'
+    'client',
+    'crawlingapi',
 ]
 
 MIDDLEWARE = [
@@ -78,11 +79,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DBname', # DB명
+        'NAME': 'django_crawling', # DB명 workbench내부에서 스키마이름으로 정한것을 DB이름으로 보면 된다.
         'USER': 'root', # 데이터베이스 계정
-        'PASSWORD': 'password', # 계정 비밀번호
-        'HOST': 'host', # 데이테베이스 주소(IP)
-        'PORT': 'port', # 데이터베이스 포트(보통은 3306)
+        'PASSWORD': '1234', # 계정 비밀번호
+        'HOST': 'localhost', # 데이테베이스 주소(IP)
+        'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
 }
 
