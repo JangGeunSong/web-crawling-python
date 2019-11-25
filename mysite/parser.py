@@ -1,8 +1,14 @@
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
-import json
-import os
 from datetime import date
+import json
+# crawling 한 데이터를 저장하기 위해서는 만들어 둔 장고 프로젝트를 실행하고 여기에 데이터를 삽입하는 작업을 해야한다. 따라서 이를 위한 import 작업이다.
+import os
+import django
+from .crawlingapi.models import MovieInfo
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+django.setup()
 
 def getData() :
     movieData = {}
@@ -24,3 +30,11 @@ def getData() :
         rank = (int(day) * 100) + idx # (오늘날자 + 순위)의 방식으로 primary key를 주기로 결정하였으므로 이를 rank에 정의
         title = post.find('a').text
         link = 'https://movie.naver.com' + post.find('a')['href']
+        movieData[title] = {link, rank}
+    
+    return movieData
+
+if __name__=='__main__':
+    moviedata = getData()
+    for title, link, rank in moviedata.items():
+        MovieInfo(title=title, link=link, movieID=rank).save()
