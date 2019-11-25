@@ -8,20 +8,20 @@
 
 # 3. 사용 기술
 
-1. Backend
+## 1. Backend
 
-1-1. Python 
+### 1.1. Python 
     기본적인 백엔드의 코딩은 제목에서 다루다 싶이 파이썬을 사용하여 코딩을 진행하였습니다.
-1-2. Django
+### 1.2. Django
     웹 서버과 관련하여 받은 데이터를 웹 페이지로 보내는 등의 처리를 하는 기술은 장고를 사용하였습니다.
-1-3. Mysql
+### 1.3. Mysql
     크롤링한 데이터를 저장하는 곳으로 Mysql을 사용하였습니다.
 
-2. Frontend
+## 2. Frontend
 
-2-1. HTML
+### 2.1. HTML
     기본적인 HTML 파일만을 사용하여 웹 페이지를 구성하였습니다.
-2-2. Bootstrap(Material)
+### 2.2. Bootstrap(Material)
     페이지의 기본적인 디자인은 부트스트랩을 사용하여 구성하였습니다.
-2-3. Vanilla Javascript
+### 2.3. Vanilla Javascript
     페이지에 로드하는 기본적인 함수등의 구성은 특별한 라이브러리나 프레임 워크의 사용없이 순수한 자바스크립트 파일만으로 구성하였습니다.
