@@ -2,16 +2,21 @@ from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 from datetime import date
 import json
-# crawling 한 데이터를 저장하기 위해서는 만들어 둔 장고 프로젝트를 실행하고 여기에 데이터를 삽입하는 작업을 해야한다. 따라서 이를 위한 import 작업이다.
-import os
-import django
-from .crawlingapi.models import MovieInfo
+import pymysql
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
-django.setup()
+# dbconfig.py
+class MysqlController:
+    def __init__(self, host, id, pw, db_name):
+        self.conn = pymysql.connect(host=host, user=id, password=pw, db=db_name,charset='utf8')
+        self.curs = self.conn.cursor()
+
+    def insert_movie_data(self, rank, title, link):
+        sql = 'INSERT INTO django_crawling.crawlingapi_movieinfo (movieID, title, articleLink) VALUES (%s, %s, %s)'
+        self.curs.execute(sql,(rank, title, link))
+        self.conn.commit()
 
 def getData() :
-    movieData = {}
+    movieData = []
     day = date.today().strftime('%Y%m%d') 
     # 크롤링은 당일만 처리할 예정이므로 오늘을 받은 후 naver movie에서 date에 받는 인자의 포멧이 맞추어 정리함 (20190120 과 같은 포멧으로 되어 있었으므로 이를 따름)
 
@@ -30,11 +35,13 @@ def getData() :
         rank = (int(day) * 100) + idx # (오늘날자 + 순위)의 방식으로 primary key를 주기로 결정하였으므로 이를 rank에 정의
         title = post.find('a').text
         link = 'https://movie.naver.com' + post.find('a')['href']
-        movieData[title] = {link, rank}
+        movie = {'title': title, 'rank': rank, 'link': link}
+        movieData.append(movie)
     
     return movieData
 
 if __name__=='__main__':
+    mysqlcontroller = MysqlController('localhost', 'root', '1234', 'django_crawling')
     moviedata = getData()
-    for title, link, rank in moviedata.items():
-        MovieInfo(title=title, link=link, movieID=rank).save()
+    for movie in moviedata:
+        mysqlcontroller.insert_movie_data(rank=movie['rank'], title=movie['title'], link=movie['link'])
