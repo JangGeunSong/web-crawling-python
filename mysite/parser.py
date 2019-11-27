@@ -41,7 +41,8 @@ def getData() :
     return movieData
 
 if __name__=='__main__':
-    mysqlcontroller = MysqlController('localhost', 'root', '1234', 'django_crawling')
-    moviedata = getData()
+    mysqlcontroller = MysqlController('localhost', 'root', '1234', 'django_crawling') # Database에 연결
+    moviedata = getData() # 데이터를 크롤링해서 딕셔너리로 저장한 것을 받아옴
     for movie in moviedata:
         mysqlcontroller.insert_movie_data(rank=movie['rank'], title=movie['title'], link=movie['link'])
+        # 딕셔너리로 받아온 데이터를 DB에 저장하는 과정을 거침

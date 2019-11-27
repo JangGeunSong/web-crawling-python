@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('client.urls')),
     path('admin/', admin.site.urls),
+    path('crawlingapi/', include('crawlingapi.urls'))
 ]
