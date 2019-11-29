@@ -1,3 +1,4 @@
+<!-- 장고 서버에서 static 파일을 받아오기 위해 사전에 입력하는 부분 -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -5,6 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- 디자인은 부트스트랩을 받아와 사용 -->
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
         <title>Python Web Crawling</title>
@@ -13,21 +15,24 @@
     <div class="container mr-6 mt-3 pt-5">
         <h1>Hello This is Python Web Crawling Test Page!</h1>
         <input type="text" id="date" value="" placeholder="Input date ex)YYYYMMDD">
-        <button type="button" class="btn btn-raised btn-primary" id="btn-search">search</button>
+        <button type="button" class="btn btn-raised btn-primary" id="btn-search">검색</button>
         <table class="table table-striped" id="movie-table">
+            <!-- 테이블의 각 열이 어떤 값을 갖는지 입력된 부분 -->
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">date</th>
                     <th scope="col">rank</th>
                     <th scope="col">title</th>
                     <th scope="col">link</th>
                 </tr>
             </thead>
+            <!-- 서버로 부터 받아온 값이 실제로 입력되어 나올 부분 -->
             <tbody id="table-body">
                 
             </tbody>
         </table>
     </div>
+    <!-- 장고 서버에서 통신해 받아오는 js파일 -->
     <script src="{% static 'javascripts/main.js '%}"></script>
 </body>
 </html>
