@@ -25,3 +25,11 @@
     페이지의 기본적인 디자인은 부트스트랩을 사용하여 구성하였습니다.
 ### 2.3. Vanilla Javascript
     페이지에 로드하는 기본적인 함수등의 구성은 특별한 라이브러리나 프레임 워크의 사용없이 순수한 자바스크립트 파일만으로 구성하였습니다.
+
+# 4. 실행방법
+
+python manage.py runserver 를 통해 서버를 실행하면 됩니다.
+
+사용 OS : windows 10
+python version : 3.7.3
+pip version : 1.9.1
