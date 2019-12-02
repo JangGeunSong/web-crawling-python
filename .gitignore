@@ -4,7 +4,7 @@
 /mysite/crawlingapi/__pycache__
 /mysite/client/migrations
 /mysite/crawlingapi/migrations
-/mysite/mysite/config
 
 # ignore no need files
 /mysite/db.sqlite3
+/mysite/dbconfig.py

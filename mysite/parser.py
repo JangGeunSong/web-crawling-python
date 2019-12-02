@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 from datetime import date
+import dbconfig # db의 셋팅 내용을 숨기기 위해 설정한 파일
 import json
 import pymysql
 
@@ -42,7 +43,7 @@ def getData() :
     return movieData
 
 if __name__=='__main__':
-    mysqlcontroller = MysqlController('localhost', 'root', '1234', 'django_crawling') # Database에 연결
+    mysqlcontroller = MysqlController(dbconfig.host, dbconfig.username, dbconfig.password, dbconfig.dbname) # Database에 연결
     moviedata = getData() # 데이터를 크롤링해서 딕셔너리로 저장한 것을 받아옴
     day = date.today().strftime('%Y%m%d') 
     # day = 원하는 날자를 'YYYYMMDD' 로 설정해서 얻어낸 데이터 값을 저장
